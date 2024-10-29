@@ -3,16 +3,15 @@ import { ref } from 'vue'
 
 const props = defineProps({
   logedUser: String,
+  sendMessage: Function
 })
 
 let user = props.logedUser
 let newMessage = ref('')
 
-const emit = defineEmits(['postMessage'])
+const emit = defineEmits(['sendMessage'])
 const managePostMessage = () => {
-  console.log(user + ' ' + newMessage.value)
-
-  emit('postMessage', { user, newMessage })
+  emit('sendMessage', { user, text: newMessage.value })
   newMessage.value = ''
 }
 </script>
