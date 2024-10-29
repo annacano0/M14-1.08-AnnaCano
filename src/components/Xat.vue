@@ -21,13 +21,50 @@ const validateMessage=(messageText)=>{
 </script>
 
 <template>
-  <h1>Xat entre usuaris</h1>
-  <ul class="message-container">
-    <li v-for="(message, index) in messages" :key="index">
-      {{ message.user }}: {{ message.text }}
-    </li>
-  </ul>  
-  <Message :logedUser="logedUser" @sendMessage="postMessage" />
+  <div id="xat-container">
+    <h1>Xat entre usuaris</h1>
+    <ul class="message-container">
+      <li v-for="(message, index) in messages" :key="index">
+        <span>{{ message.user }}:</span> {{ message.text }}
+      </li>
+    </ul>  
+    <Message :logedUser="logedUser" @sendMessage="postMessage" />
+  </div>
+ 
 </template>
 
-<style scoped></style>
+<style scoped>
+
+#xat-container{
+background-color: rgb(82, 82, 82);
+border-radius: 10px;
+margin: 10px;
+padding: 10px 20px 20px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+
+ul{
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+li{
+  color: black;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  width: fit-content;
+  margin: 5px;
+}
+
+li span{
+  color: rgb(63, 63, 63);
+}
+</style>
